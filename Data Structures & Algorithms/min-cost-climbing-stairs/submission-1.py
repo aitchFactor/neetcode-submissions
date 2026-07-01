@@ -1,0 +1,8 @@
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        memo = [0, 0]
+        cost.append(0)
+        for c in cost:
+            memo.append(min(memo.pop(0), memo[-1]) + c)
+            # print (memo, "cost", c)
+        return memo[-1]
